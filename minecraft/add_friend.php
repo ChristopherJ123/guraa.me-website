@@ -4,7 +4,7 @@ include('database.php');
 session_start();
 
 $friend = filter_input(
-    INPUT_GET,
+    INPUT_POST,
     "u",
     FILTER_SANITIZE_SPECIAL_CHARS
 );

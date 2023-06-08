@@ -53,12 +53,12 @@ session_start();
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     if ($row['adder_username'] == $_SESSION["username_s"]) {
                                         echo "
-                                        <div class='input-box-big border-inventory' id='pending-user-{$row['accepter_username']}' style='justify-content: space-between;'>
+                                        <div class='input-box-big border-inventory' id='friend-user-{$row['accepter_username']}' style='justify-content: space-between;'>
                                             <div style='padding: 0 10px;'>{$row['accepter_username']}</div>
                                         </div>";
                                     } else {
                                         echo "
-                                        <div class='input-box-big border-inventory' id='pending-user-{$row['adder_username']}' style='justify-content: space-between;'>
+                                        <div class='input-box-big border-inventory' id='friend-user-{$row['adder_username']}' style='justify-content: space-between;'>
                                             <div style='padding: 0 10px;'>{$row['adder_username']}</div>
                                         </div>";
                                     }

@@ -474,11 +474,13 @@
     padding: 10px;
     background-color: rgba(255, 70, 70, 0.8);
     color: rgba(155, 70, 70);
-    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
   .success {
     padding: 10px;
     background-color: rgba(70, 255, 70, 0.8);
     color: rgba(70, 155, 70);
-    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }

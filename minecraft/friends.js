@@ -30,13 +30,13 @@ $('#friend-search-form').on('submit', function(event) {
 function searchHint(value) {
     if (value.length == 0) {
         document.getElementById('search-output').innerHTML = "";
-        document.getElementById('friends-output').style.display = "none";
+        document.getElementById('search-warning-output').style.display = "none";
     } else {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 & this.status == 200) {
                 document.getElementById('search-output').innerHTML = this.responseText;
-                document.getElementById('friends-output').style.display = "none";
+                document.getElementById('search-warning-output').style.display = "none";
             }
         }
         xmlhttp.open('GET', 'get_usernames.php?u=' + value, true);
@@ -52,8 +52,9 @@ function addFriend(username) {
             document.getElementById('search-warning-output').style.display = "flex";
         }
     }
-    xmlhttp.open('GET', 'add_friend.php?u=' + username, true);
-    xmlhttp.send();
+    xmlhttp.open('POST', 'add_friend.php', true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send('u=' + username);
 }
 
 function acceptFriend(username) {
