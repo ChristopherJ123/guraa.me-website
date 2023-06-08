@@ -33,12 +33,64 @@ session_start();
             </div>
             <div class="friends-container border-gui" style="display: flex; flex-direction: column; z-index: 1;">
                 <?php if (isset($_SESSION["username_s"])) {
-                    $query = "SELECT * FROM users WHERE username = '{$_SESSION['username_s']}'";
-                    $query_result = mysqli_query($conn, $query);
-                    $credentials = mysqli_fetch_assoc($query_result);
                 ?>
                     <div class="friends-panel">
-                        <div>Friends online:</div>
+                        <div class="inventory-container" id="friends-output">
+                            Friends:
+                            <?php
+                            // Check if you have friends :<
+                            $query = "
+                            SELECT f.user_id AS adder_id, f.friend_id AS accepter_id, f.status_id , u.username AS adder_username, u2.username AS accepter_username
+                            FROM friends f
+                            JOIN users u
+                            ON u.user_id = f.user_id
+                            JOIN users u2
+                            ON u2.user_id = f.friend_id
+                            WHERE u.username = '{$_SESSION["username_s"]}' AND status_id = 1 OR u2.username = '{$_SESSION["username_s"]}' AND status_id = 1;
+                            ";
+                            $result = mysqli_query($conn, $query);
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    if ($row['adder_username'] == $_SESSION["username_s"]) {
+                                        echo "
+                                        <div class='input-box-big border-inventory' id='pending-user-{$row['accepter_username']}' style='justify-content: space-between;'>
+                                            <div style='padding: 0 10px;'>{$row['accepter_username']}</div>
+                                        </div>";
+                                    } else {
+                                        echo "
+                                        <div class='input-box-big border-inventory' id='pending-user-{$row['adder_username']}' style='justify-content: space-between;'>
+                                            <div style='padding: 0 10px;'>{$row['adder_username']}</div>
+                                        </div>";
+                                    }
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div class="inventory-container">
+                            Friends requests:
+                            <?php
+                            // Check if anyone's pending
+                            $query = "
+                            SELECT f.user_id AS 'pending_user_id', u2.username, f.status_id
+                            FROM `friends` f
+                            JOIN users u
+                            ON u.username = '{$_SESSION["username_s"]}' AND f.friend_id = u.user_id AND f.status_id = 0
+                            JOIN users u2
+                            ON u2.user_id = f.user_id;
+                            ";
+                            $result = mysqli_query($conn, $query);
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "
+                                    <div class='input-box-big border-inventory' id='pending-user-{$row['username']}' style='justify-content: space-between;'>
+                                        <div style='padding: 0 10px;'>{$row['username']}</div>
+                                        <div style='padding: 0 10px; cursor: pointer; ' onclick='acceptFriend(\"{$row['username']}\")'><img src='assets/add_friends.svg' alt='add_friends.svg' width='30px'></div>
+                                    </div>";
+                                }
+                            }
+                            ?>
+                            <div class="text-container" id="friends-warning-output" style="display: none;"></div>
+                        </div>
                     </div>
                     <div class="add-panel" style="display: none;">
                         <div> Add a friend:</div>
@@ -48,7 +100,7 @@ session_start();
                                 <input type="submit" class="border-button-no-outline" value="Submit">
                             </form>
                             <div class="inventory-container" id="search-output"></div>
-                            <div class="text-container" id="friends-output" style="width: 320px; display: none;"></div>
+                            <div class="text-container" id="search-warning-output" style="max-width: 320px; display: none;"></div>
                         </div>
                     </div>
 

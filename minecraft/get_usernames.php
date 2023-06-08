@@ -1,7 +1,11 @@
 <?php
 include('database.php');
 
-$u = $_GET['u'];
+$u = filter_input(
+    INPUT_GET,
+    "u",
+    FILTER_SANITIZE_SPECIAL_CHARS
+);
 
 $query = "SELECT username FROM users WHERE username LIKE '%" . $u . "%'";
 $result = mysqli_query($conn, $query);

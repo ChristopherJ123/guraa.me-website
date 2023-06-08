@@ -389,6 +389,11 @@
     padding: 8px;
     justify-content: center;
   }
+  .friends-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   .add-panel {
     display: flex;
     flex-direction: column;
@@ -469,10 +474,11 @@
     padding: 10px;
     background-color: rgba(255, 70, 70, 0.8);
     color: rgba(155, 70, 70);
+    width: 100%;
   }
   .success {
     padding: 10px;
     background-color: rgba(70, 255, 70, 0.8);
     color: rgba(70, 155, 70);
-
+    width: 100%;
   }

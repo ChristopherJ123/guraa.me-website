@@ -3,7 +3,11 @@
 include('database.php');
 session_start();
 
-$friend = $_GET['u'];
+$friend = filter_input(
+    INPUT_GET,
+    "u",
+    FILTER_SANITIZE_SPECIAL_CHARS
+);
 $user_id = "";
 $friend_id = "";
 
@@ -26,11 +30,15 @@ try {
         $friend_id = $row['user_id'];
 
         if ($user_id == $friend_id) {
-            echo "You cannot befriend yourself lol";
+            echo "<div class='error'>You cannot befriend yourself lol</div>";
             return;
         }
 
-        $query = "SELECT user_id, friend_id, status_id FROM friends WHERE user_id = {$user_id} AND friend_id = {$friend_id}";
+        $query = "
+        SELECT user_id, friend_id, status_id 
+        FROM friends 
+        WHERE user_id = {$user_id} AND friend_id = {$friend_id} OR user_id = {$friend_id} AND friend_id = {$user_id}
+        ";
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {

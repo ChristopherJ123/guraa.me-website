@@ -48,11 +48,23 @@ function addFriend(username) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 & this.status == 200) {
-            document.getElementById('friends-output').innerHTML = this.responseText;
-            document.getElementById('friends-output').style.display = "flex";
+            document.getElementById('search-warning-output').innerHTML = this.responseText;
+            document.getElementById('search-warning-output').style.display = "flex";
         }
     }
     xmlhttp.open('GET', 'add_friend.php?u=' + username, true);
     xmlhttp.send();
 }
 
+function acceptFriend(username) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 & this.status == 200) {
+            document.getElementById('friends-warning-output').innerHTML = this.responseText;
+            document.getElementById('friends-warning-output').style.display = "flex";
+            document.getElementById('pending-user-' + username).style.display = "none";
+        }
+    }
+    xmlhttp.open('GET', 'accept_friend.php?u=' + username, true);
+    xmlhttp.send();
+}
