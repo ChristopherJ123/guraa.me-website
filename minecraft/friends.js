@@ -63,6 +63,10 @@ function acceptFriend(username) {
             document.getElementById('friends-warning-output').innerHTML = this.responseText;
             document.getElementById('friends-warning-output').style.display = "flex";
             document.getElementById('pending-user-' + username).style.display = "none";
+            function delay(time) {
+                return new Promise(resolve => setTimeout(resolve, time));
+            }
+            delay(1000).then(() => location.reload());
         }
     }
     xmlhttp.open('GET', 'accept_friend.php?u=' + username, true);
