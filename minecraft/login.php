@@ -26,12 +26,15 @@ session_start(); ?>
         <label for="password">Password: </label>
         <input class="register-input border-inventory" type="password" name="password_name" id="password_id" placeholder="Password" required />
         <?php if (!empty($_SESSION["login_failed_s"])) {
-          if (
-            $_SESSION["login_failed_s"] == 1
-          ) { ?> <div class="error">Username does not exist!</div> <?php } elseif (
-                                                                    $_SESSION["login_failed_s"] == 2
-                                                                  ) { ?> <div class="error">Login failed!</div> <?php }
-                                                                                                            } ?>
+          if ($_SESSION["login_failed_s"] == 1) {
+            echo "<div class='error;>Username does not exist!</div>";
+        ?> <?php } elseif ($_SESSION["login_failed_s"] == 2) {
+            echo "            
+            <div>
+              <div class='error'>Login failed!</div>
+            </div>";
+          }
+        } ?>
         <div class="register-submit-container">
           <input class="register-submit border-gui" type="submit" value="Enter" />
         </div>
