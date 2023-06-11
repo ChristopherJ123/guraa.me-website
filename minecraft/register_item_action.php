@@ -46,7 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "You are not logged in.";
   } else {
     $query = "INSERT INTO `products`(`name`, `description`, `image`, `quantity_in_stock`, `price`, `tags`, `author`) 
-    VALUES ('{$name}','{$description}','{$image}','{$quantity_in_stock}','{$price}','{$tags}','{$_SESSION['username_s']}')";
+    VALUES ('" . htmlentities($name);
+    "','{$description}','" . htmlentities($image);
+    "','{$quantity_in_stock}','{$price}','" . htmlentities($tags);
+    "','{$_SESSION['username_s']}')";
 
     try {
       mysqli_query($conn, $query);
