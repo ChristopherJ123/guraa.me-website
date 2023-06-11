@@ -32,7 +32,17 @@ $_SESSION["register_failed_s"] = null;
             <span class="quatity" id="total-items">0</span>
           </div>
 
-          <?php if (isset($_SESSION["username_s"])) { ?>
+          <?php if (isset($_SESSION["username_s"])) {
+            $query = "
+            UPDATE users_online uo
+            JOIN users u
+            ON u.user_id = uo.user_id
+            SET uo.status_id = 1
+            WHERE u.username = '{$_SESSION["username_s"]}';
+            ";
+            mysqli_query($conn, $query);
+
+          ?>
             <div class="login-item login-username"> Welcome, <?php echo $_SESSION["username_s"]; ?>
               <div class="login-profile border-gui">
                 <div>Hello, <?php echo $_SESSION["username_s"]; ?> </div>
