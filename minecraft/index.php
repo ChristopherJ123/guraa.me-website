@@ -37,12 +37,12 @@ $_SESSION["register_failed_s"] = null;
             UPDATE users_online uo
             JOIN users u
             ON u.user_id = uo.user_id
-            SET uo.status_id = 1
+            SET uo.status_id = 1, uo.start_time = CURRENT_TIMESTAMP, uo.end_time = TIMESTAMPADD(minute, 1, CURRENT_TIMESTAMP)
             WHERE u.username = '{$_SESSION["username_s"]}';
             ";
             mysqli_query($conn, $query);
-
           ?>
+
             <div class="login-item login-username"> Welcome, <?php echo $_SESSION["username_s"]; ?>
               <div class="login-profile border-gui">
                 <div>Hello, <?php echo $_SESSION["username_s"]; ?> </div>
@@ -76,6 +76,7 @@ $_SESSION["register_failed_s"] = null;
 
       <div class="shop-container">
         <?php
+        // Display items
         if (isset($_GET['search_name'])) {
           $search = filter_input(
             INPUT_GET,
