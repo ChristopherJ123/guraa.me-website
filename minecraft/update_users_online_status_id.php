@@ -5,7 +5,7 @@ try {
     $query = "
     UPDATE users_online
     SET status_id = 0
-    WHERE end_time < CURRENT_TIMESTAMP
+    WHERE timeout_time < CURRENT_TIMESTAMP
     ";
     mysqli_query($conn, $query);
     echo "Success!";

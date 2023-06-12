@@ -37,7 +37,7 @@ $_SESSION["register_failed_s"] = null;
             UPDATE users_online uo
             JOIN users u
             ON u.user_id = uo.user_id
-            SET uo.status_id = 1, uo.start_time = CURRENT_TIMESTAMP, uo.end_time = TIMESTAMPADD(minute, 1, CURRENT_TIMESTAMP)
+            SET uo.status_id = 1, uo.last_seen_time = CURRENT_TIMESTAMP, uo.timeout_time = TIMESTAMPADD(minute, 1, CURRENT_TIMESTAMP)
             WHERE u.username = '{$_SESSION["username_s"]}';
             ";
             mysqli_query($conn, $query);
