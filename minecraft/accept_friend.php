@@ -47,3 +47,5 @@ try {
 } catch (mysqli_sql_exception) {
     echo "<div class='error'>Error!<br>Have you tried logging in first?</div>";
 }
+
+mysqli_close($conn);

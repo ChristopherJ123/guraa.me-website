@@ -63,3 +63,5 @@ try {
 } catch (mysqli_sql_exception) {
     echo "Error!";
 }
+
+mysqli_close($conn);

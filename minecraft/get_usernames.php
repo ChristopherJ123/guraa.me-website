@@ -21,3 +21,5 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo "No usernames found";
 }
+
+mysqli_close($conn);
