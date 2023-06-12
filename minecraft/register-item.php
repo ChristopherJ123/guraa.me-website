@@ -1,6 +1,6 @@
 <?php
 
-include 'database.php';
+include 'scripts/database.php';
 session_start();
 
 if (!isset($_SESSION['username_s'])) {

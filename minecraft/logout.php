@@ -1,5 +1,5 @@
 <?php
-include('database.php');
+include('scripts/database.php');
 session_start();
 
 $query = "
