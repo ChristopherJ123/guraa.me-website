@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include "database.php";
+include "../database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = filter_input(
@@ -30,19 +30,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Login succesful!";
             $_SESSION["username_s"] = $username;
             $_SESSION["email_s"] = $row['email'];
-            header("Location: index.php");
+            header("Location: ../index.php");
             exit();
           } else {
             echo "Login failed!";
             $_SESSION["login_failed_s"] = 2;
-            header("Location: login.php");
+            header("Location: ../login.php");
             exit();
           }
         }
       } else {
         echo "Username does not exist!";
         $_SESSION["login_failed_s"] = 1;
-        header("Location: login.php");
+        header("Location: ../login.php");
         exit();
       }
     } catch (mysqli_sql_exception) {

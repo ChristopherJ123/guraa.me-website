@@ -19,7 +19,7 @@ session_start(); ?>
   </a>
   <div class="register-body">
     <div class="register-container border-gui">
-      <form class="register-form" action="login_action.php" method="post" name="register_form">
+      <form class="register-form" action="scripts/login_action.php" method="post" name="register_form">
         <legend>Let's Login!</legend>
         <label for="username">Minecraft Username: </label>
         <input class="register-input border-inventory" type="text" name="username_name" id="username_id" placeholder="Username" required />

@@ -27,7 +27,7 @@ if (!isset($_SESSION['username_s'])) {
     </a>
     <div class="register-body">
         <div class="register-container border-gui">
-            <form class="register-form" action="register_item_action.php" method="post" name="register_form" style="width: 400px; gap:10px">
+            <form class="register-form" action="scripts/register_item_action.php" method="post" name="register_form" style="width: 400px; gap:10px">
                 <legend>Create your item!</legend>
                 <label for="name">Name: <b style="color: red">*</b> </label>
                 <input class="register-input border-inventory" type="text" name="name_name" id="name_id" placeholder="Name" required />

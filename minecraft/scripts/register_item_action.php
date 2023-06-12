@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include "database.php";
+include "../database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $name              = filter_input(
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
       mysqli_execute_query($conn, $query);
-      header("Location: index.php");
+      header("Location: ../index.php");
       exit();
     } catch (mysqli_sql_exception) {
       echo "System error.";

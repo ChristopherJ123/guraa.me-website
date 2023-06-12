@@ -39,7 +39,7 @@ function searchHint(value) {
                 document.getElementById('search-warning-output').style.display = "none";
             }
         }
-        xmlhttp.open('GET', 'get_usernames.php?u=' + value, true);
+        xmlhttp.open('GET', 'scripts/get_usernames.php?u=' + value, true);
         xmlhttp.send();
     }
 }
@@ -52,7 +52,7 @@ function addFriend(username) {
             document.getElementById('search-warning-output').style.display = "flex";
         }
     }
-    xmlhttp.open('POST', 'add_friend.php', true);
+    xmlhttp.open('POST', 'scripts/add_friend.php', true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xmlhttp.send('u=' + username);
 }
@@ -70,6 +70,6 @@ function acceptFriend(username) {
             delay(1000).then(() => location.reload());
         }
     }
-    xmlhttp.open('GET', 'accept_friend.php?u=' + username, true);
+    xmlhttp.open('GET', 'scripts/accept_friend.php?u=' + username, true);
     xmlhttp.send();
 }

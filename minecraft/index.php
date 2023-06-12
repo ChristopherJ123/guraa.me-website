@@ -33,14 +33,6 @@ $_SESSION["register_failed_s"] = null;
           </div>
 
           <?php if (isset($_SESSION["username_s"])) {
-            $query = "
-            UPDATE users_online uo
-            JOIN users u
-            ON u.user_id = uo.user_id
-            SET uo.status_id = 1, uo.last_seen_time = CURRENT_TIMESTAMP, uo.timeout_time = TIMESTAMPADD(minute, 1, CURRENT_TIMESTAMP)
-            WHERE u.username = '{$_SESSION["username_s"]}';
-            ";
-            mysqli_query($conn, $query);
           ?>
 
             <div class="login-item login-username"> Welcome, <?php echo $_SESSION["username_s"]; ?>
@@ -123,5 +115,10 @@ $_SESSION["register_failed_s"] = null;
 
 </body>
 <script src="app.js"></script>
+<?php
+if (isset($_SESSION["username_s"])) {
+  echo "<script src='scripts/user_is_online.js'></script>";
+}
+?>
 
 </html>

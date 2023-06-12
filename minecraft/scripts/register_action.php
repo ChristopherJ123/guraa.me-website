@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include "database.php";
+include "../database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = filter_input(
@@ -40,21 +40,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       ) {
         echo "This username has already registered.";
         $_SESSION["register_failed_s"] = 1;
-        header("Location: register.php");
+        header("Location: ../register.php");
         exit();
       } elseif (
         mysqli_num_rows(mysqli_query($conn, $sql_query_select_email)) > 0
       ) {
         echo "This email has already registered.";
         $_SESSION["register_failed_s"] = 2;
-        header("Location: register.php");
+        header("Location: ../register.php");
         exit();
       } else {
         mysqli_query($conn, $sql_query_insert);
         mysqli_query($conn, $sql_query_insert2);
         echo "{$username} is now registered.";
         $_SESSION["register_failed_s"] = 3;
-        header("Location: register.php");
+        header("Location: ../register.php");
         exit();
       }
     } catch (mysqli_sql_exception) {
