@@ -27,7 +27,7 @@ session_start(); ?>
         <input class="register-input border-inventory" type="password" name="password_name" id="password_id" placeholder="Password" required />
         <?php if (!empty($_SESSION["login_failed_s"])) {
           if ($_SESSION["login_failed_s"] == 1) {
-            echo "<div class='error;>Username does not exist!</div>";
+            echo "<div class='error'>Username does not exist!</div>";
         ?> <?php } elseif ($_SESSION["login_failed_s"] == 2) {
             echo "            
             <div>
