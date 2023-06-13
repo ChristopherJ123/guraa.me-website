@@ -115,6 +115,7 @@ $_SESSION["register_failed_s"] = null;
 
 </body>
 <script src="app.js"></script>
+
 <?php
 if (isset($_SESSION["username_s"])) {
   echo "<script src='scripts/user_is_online.js'></script>";

@@ -42,4 +42,10 @@ session_start();
     </div>
 </body>
 
+<?php
+if (isset($_SESSION["username_s"])) {
+    echo "<script src='scripts/user_is_online.js'></script>";
+}
+?>
+
 </html>
