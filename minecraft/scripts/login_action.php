@@ -30,6 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Login succesful!";
             $_SESSION["username_s"] = $username;
             $_SESSION["email_s"] = $row['email'];
+            $query = "
+            UPDATE users_online uo
+            JOIN users u
+            ON u.user_id = uo.user_id
+            SET uo.status_id = 1, uo.start_time = CURRENT_TIMESTAMP
+            WHERE u.username = '{$_SESSION["username_s"]}';
+            ";
+            mysqli_query($conn, $query);
             header("Location: ../index.php");
             exit();
           } else {

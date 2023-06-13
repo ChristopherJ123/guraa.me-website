@@ -41,7 +41,7 @@ $_SESSION["register_failed_s"] = null;
                 <div style="overflow-wrap:break-word;"> <?php echo $_SESSION["email_s"]; ?> </div>
                 <a class="border-button" href="profile.php">View profile</a>
                 <a class="border-button" href="friends.php">Friends</a>
-                <a class="border-button" href="logout.php">Logout</a>
+                <a class="border-button" href="scripts/logout.php">Logout</a>
               </div>
             </div>
           <?php } else { ?>
