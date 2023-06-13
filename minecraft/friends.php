@@ -54,8 +54,10 @@ session_start();
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     if ($row['adder_username'] == $_SESSION["username_s"]) {
-                                        $html = '';
+                                        $html = "class='offline'";
                                         if ($row['online_status'] == 0) {
+                                            $html = "";
+                                        } else {
                                             $html = "class='offline'";
                                         }
                                         echo "
@@ -108,7 +110,7 @@ session_start();
                         <div> Add a friend:</div>
                         <div>
                             <form style="display: flex;" id="friend-search-form">
-                                <input type="search" name="search_name" id="" class="input-box border-inventory" placeholder="Username" onkeyup="searchHint(this.value)" required>
+                                <input type="search" name="search_name" id="" class="input-box border-inventory" placeholder="Username" onkeydown="searchHint(this.value)" required>
                                 <input type="submit" class="border-button-no-outline" value="Submit">
                             </form>
                             <div class="inventory-container" id="search-output"></div>
@@ -125,5 +127,11 @@ session_start();
 </body>
 
 <script src="friends.js"></script>
+
+<?php
+if (isset($_SESSION["username_s"])) {
+    echo "<script src='scripts/user_is_online.js'></script>";
+}
+?>
 
 </html>
