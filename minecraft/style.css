@@ -469,7 +469,10 @@
     word-wrap: break-word;
     margin: 10px 10px 0 10px;
   }
-  
+
+  .offline {
+    filter: grayscale(100%);
+  }
   .error {
     padding: 10px;
     background-color: rgba(255, 70, 70, 0.8);
