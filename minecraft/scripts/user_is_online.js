@@ -1,6 +1,12 @@
+let first_time = 'true';
+
 (async function ping () {
-    // Asynchronously call x.php
-    await fetch( "scripts/update_users_online_status_id.php" );
-    // Issue this call again in 60 seconds
+    // Alternatif pake fetch() tapi itu mending buat application/JSON
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('POST', 'scripts/update_users_online_status_id.php', true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send('condition=' + first_time);
+
+    first_time = 'false';
     setTimeout( ping, 60_000 );
 }());
