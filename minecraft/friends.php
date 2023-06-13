@@ -56,9 +56,9 @@ session_start();
                                     if ($row['adder_username'] == $_SESSION["username_s"]) {
                                         $html = "class='offline'";
                                         if ($row['online_status'] == 0) {
-                                            $html = "";
-                                        } else {
                                             $html = "class='offline'";
+                                        } else {
+                                            $html = "";
                                         }
                                         echo "
                                         <div class='input-box-big border-inventory' id='friend-user-{$row['accepter_username']}' style='justify-content: space-between;'>
