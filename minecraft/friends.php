@@ -110,7 +110,7 @@ session_start();
                         <div> Add a friend:</div>
                         <div>
                             <form style="display: flex;" id="friend-search-form">
-                                <input type="search" name="search_name" id="" class="input-box border-inventory" placeholder="Username" onkeydown="searchHint(this.value)" required>
+                                <input type="search" name="search_name" id="" class="input-box border-inventory" placeholder="Username" onkeyup="searchHint(this.value)" required>
                                 <input type="submit" class="border-button-no-outline" value="Submit">
                             </form>
                             <div class="inventory-container" id="search-output"></div>
