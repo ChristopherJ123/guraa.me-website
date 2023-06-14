@@ -28,8 +28,7 @@
   .login-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 100vw;
-    background-color: #c6c6c6;
+    width: 100%;
     }
   .login-container-middle {
     display: flex;

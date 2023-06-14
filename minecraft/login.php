@@ -21,9 +21,9 @@ session_start(); ?>
     <div class="register-container border-gui">
       <form class="register-form" action="scripts/login_action.php" method="post" name="register_form">
         <legend>Let's Login!</legend>
-        <label for="username">Minecraft Username: </label>
+        <label for="username_id">Minecraft Username: </label>
         <input class="register-input border-inventory" type="text" name="username_name" id="username_id" placeholder="Username" required />
-        <label for="password">Password: </label>
+        <label for="password_id">Password: </label>
         <input class="register-input border-inventory" type="password" name="password_name" id="password_id" placeholder="Password" required />
         <?php if (!empty($_SESSION["login_failed_s"])) {
           if ($_SESSION["login_failed_s"] == 1) {

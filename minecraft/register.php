@@ -21,13 +21,13 @@ session_start(); ?>
     <div class="register-container border-gui">
       <form class="register-form" action="scripts/register_action.php" method="post" name="register_form" style="width: 350px">
         <legend>Let's Register!</legend>
-        <label for="username">Minecraft Username: </label>
+        <label for="username_id">Minecraft Username: </label>
         <input class="register-input border-inventory" type="text" name="username_name" id="username_id" placeholder="Username" required />
-        <label for="email">E-mail: </label>
+        <label for="email_id">E-mail: </label>
         <input class="register-input border-inventory" type="email" name="email_name" id="email_id" placeholder="Email" required />
-        <label for="password">Password: </label>
+        <label for="password_id">Password: </label>
         <input class="register-input border-inventory" type="password" name="password_name" id="password_id" placeholder="Password" onchange="confirmPasswordIsSame('register_form')" required />
-        <label for="password">Confirm Password: </label>
+        <label for="password_confirm_id">Confirm Password: </label>
         <input class="register-input border-inventory" type="password" name="password_confirm_name" id="password_confirm_id" placeholder="Password Confirm" onchange="confirmPasswordIsSame('register_form')" required />
         <?php if (!empty($_SESSION["register_failed_s"])) {
           if ($_SESSION["register_failed_s"] == 3) { ?>
