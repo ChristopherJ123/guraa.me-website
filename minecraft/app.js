@@ -97,6 +97,7 @@ $('#chat-text-box-form').on('submit', function(event) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 & this.status == 200) {
             // TODO: Real time chatting
+            location.reload();
         }
     }
     xmlhttp.open('POST', 'scripts/send_server_chat.php', true);
