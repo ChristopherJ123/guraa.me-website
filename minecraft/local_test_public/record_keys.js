@@ -6,7 +6,8 @@ document.addEventListener('keypress', (e) => {
 })
 
 function keyPressed(value) {
-    document.querySelector('.key').innerText += value;
+    console.log(value);
+    document.querySelector('.key').innerText = value;
 
     if (value.length == 0) {
         document.getElementById('search-output').innerHTML = "";
@@ -22,7 +23,7 @@ function keyPressed(value) {
         xmlhttp.open('GET', 'xmlhttp.php?i=' + value, true);
         xmlhttp.send();
     }
-
+    
 }
 
 // Selain keypress ada keydown dan keyup

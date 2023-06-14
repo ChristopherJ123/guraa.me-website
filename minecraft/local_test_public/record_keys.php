@@ -6,6 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
+  <style>
+    .offline {
+      filter: grayscale(100%);
+    }
+  </style>
 </head>
 
 <body>
@@ -16,6 +21,7 @@
     </form>
     <p class="key"></p>
     <p class="code"></p>
+    <img src='../assets/Online_Indicator.svg' alt='online_indicator' style='width: 20px;' class="offline">
 
     <div class="inventory-container" id="search-output"></div>
     <div class="text-container" id="search-warning-output" style="max-width: 320px; display: none;"></div>
