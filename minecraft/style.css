@@ -68,11 +68,13 @@
   }
 
   .menu-container {
+    display: flex;
+    flex-direction: column;
     background-color: #c6c6c6;
-    flex-flow: row wrap;
     padding: 20px;
     margin-right: 6px;
     min-height: 100vh;
+    gap: 25px;
   }
   .menu-item {
     display: flex;
@@ -83,6 +85,32 @@
     margin-bottom: 20px;
     font-size: 48px;
     color: black;
+  }
+
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+  }
+  .chat-text-area {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .chat-text-box {
+    display: flex;
+  }
+  .chat-messages {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 4px;
+  }
+  .chat-message {
+    display: flex; 
+    flex-wrap: wrap;
+    word-break: break-all;
+    gap: 10px; 
   }
   
   .shop-container {
@@ -100,14 +128,15 @@
   }
   .shop-items {
     display: flex;
-    width: 200px;
-    height: 300px;  
+    flex: 1;
   }
   .shop-item {
     display: flex;
+    flex: 1;
+
     flex-direction: column;
-    width: 200px;
     height: 300px;  
+    width: 200px;
     transition: 0s;
     cursor: pointer;
   }

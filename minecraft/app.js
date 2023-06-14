@@ -87,9 +87,19 @@ cart_close.addEventListener('click', ()=>{
     body.classList.remove('open-cart')
 })
 
-function confirmPasswordIsSame(form_name) {
-    console.log("confrimPasswordIsSamw");
-    let password = document.forms[form_name]["password_name"];
-    let password_confirm = document.forms[form_name]["password_name"];
-    console.log(password + " " + password_confirm);
-}
+// Prevent submitting form
+$('#chat-text-box-form').on('submit', function(event) {
+    event.preventDefault();
+    let message = document.getElementById('chat-input').value;
+    document.getElementById('chat-input').value = '';
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 & this.status == 200) {
+            // TODO: Real time chatting
+        }
+    }
+    xmlhttp.open('POST', 'scripts/send_server_chat.php', true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send('msg=' + message);
+})
