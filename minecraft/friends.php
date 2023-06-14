@@ -40,7 +40,7 @@ session_start();
                             <?php
                             // Check if you have friends :<
                             $query = "
-                            SELECT f.user_id AS adder_id, f.friend_id AS accepter_id, f.status_id AS friends_status, u.username AS adder_username, u2.username AS accepter_username, uo.status_id AS online_status
+                            SELECT f.user_id AS adder_id, f.friend_id AS accepter_id, f.status_id AS friends_status, u.username AS adder_username, u2.username AS accepter_username, uo.status_id AS accepter_online_status, uo2.status_id AS adder_online_status
                             FROM friends f
                             JOIN users u
                             ON u.user_id = f.user_id
@@ -48,17 +48,19 @@ session_start();
                             ON u2.user_id = f.friend_id
                             JOIN users_online uo
                             ON uo.user_id = f.friend_id
+                            JOIN users_online uo2
+                            ON uo2.user_id = f.user_id
                             WHERE u.username = '{$_SESSION["username_s"]}' AND f.status_id = 1 OR u2.username = '{$_SESSION["username_s"]}' AND f.status_id = 1;
                             ";
                             $result = mysqli_query($conn, $query);
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    if ($row['online_status'] == 0) {
-                                        $html = "class='offline'";
-                                    } else {
-                                        $html = "class='online'";
-                                    }
                                     if ($row['adder_username'] == $_SESSION["username_s"]) {
+                                        if ($row['accepter_online_status'] == 0) {
+                                            $html = "class='offline'";
+                                        } else {
+                                            $html = "class='online'";
+                                        }
                                         echo "
                                         <div class='input-box-big border-inventory' id='friend-user-{$row['accepter_username']}' style='justify-content: space-between;'>
                                             <div style='margin: 0 10px;'>{$row['accepter_username']}</div>
@@ -67,6 +69,11 @@ session_start();
                                             </div>
                                         </div>";
                                     } else {
+                                        if ($row['adder_online_status'] == 0) {
+                                            $html = "class='offline'";
+                                        } else {
+                                            $html = "class='online'";
+                                        }
                                         echo "
                                         <div class='input-box-big border-inventory' id='friend-user-{$row['adder_username']}' style='justify-content: space-between;'>
                                             <div style='margin: 0 10px;'>{$row['adder_username']}</div>
