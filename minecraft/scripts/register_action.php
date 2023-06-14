@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-include "database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  include "database.php";
   $username = filter_input(
     INPUT_POST,
     "username_name",
@@ -61,6 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "System error.";
     }
   }
-}
 
-mysqli_close($conn);
+  mysqli_close($conn);
+}

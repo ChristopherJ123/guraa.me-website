@@ -70,6 +70,7 @@ function acceptFriend(username) {
             delay(1000).then(() => location.reload());
         }
     }
-    xmlhttp.open('GET', 'scripts/accept_friend.php?u=' + username, true);
-    xmlhttp.send();
+    xmlhttp.open('POST', 'scripts/accept_friend.php', true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send('u=' + username);
 }

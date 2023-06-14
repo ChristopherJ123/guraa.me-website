@@ -1,9 +1,10 @@
 <?php
 
 session_start();
-include "database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  include "database.php";
+
   $username = filter_input(
     INPUT_POST,
     "username_name",

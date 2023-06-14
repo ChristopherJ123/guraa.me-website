@@ -1,8 +1,8 @@
 <?php
-include('database.php');
 session_start();
 
 if (isset($_SESSION["username_s"])) {
+    include('database.php');
     // Set user status_id to 0 and timeout_time to CURRENT_TIMESTAMP
     $query = "
     UPDATE users_online uo
