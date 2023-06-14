@@ -54,11 +54,10 @@ session_start();
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     if ($row['adder_username'] == $_SESSION["username_s"]) {
-                                        $html = "class='offline'";
                                         if ($row['online_status'] == 0) {
                                             $html = "class='offline'";
                                         } else {
-                                            $html = "";
+                                            $html = "class='online'";
                                         }
                                         echo "
                                         <div class='input-box-big border-inventory' id='friend-user-{$row['accepter_username']}' style='justify-content: space-between;'>
