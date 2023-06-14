@@ -5,11 +5,11 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include "database.php";
 
-  $username = filter_input(
+  $username = strtolower(filter_input(
     INPUT_POST,
     "username_name",
     FILTER_SANITIZE_SPECIAL_CHARS
-  );
+  ));
   $password = filter_input(
     INPUT_POST,
     "password_name",
