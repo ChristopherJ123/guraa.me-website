@@ -2,7 +2,7 @@ document.addEventListener('keypress', (e) => {
     var key = e.key;
     var code = e.code;  
 
-    document.querySelector('.key').innerText += key;
+    // document.querySelector('.key').innerText += key;
 })
 
 function keyPressed(value) {
@@ -19,7 +19,7 @@ function keyPressed(value) {
                 document.getElementById('search-warning-output').style.display = "none";
             }
         }
-        xmlhttp.open('GET', '../scripts/get_usernames.php?u=' + value, true);
+        xmlhttp.open('GET', 'xmlhttp.php?i=' + value, true);
         xmlhttp.send();
     }
 
