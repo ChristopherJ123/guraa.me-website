@@ -34,7 +34,7 @@ function selectServerChat(name) {
 }
 
 // Prevent submitting form
-// IMPORTANT NOTE: Fungsi dibawah ini cuma menselect 1 element Id SAAT load page
+// IMPORTANT NOTE: Fungsi dibawah ini cuma men-select 1 element Id SAAT load page
 // TODO: Perlu test: pake $('.chat-text-box-form') yaitu class agar bisa lebih dari 1 element
 $('#chat-text-box-form').on('submit', function(event) {
     event.preventDefault();
