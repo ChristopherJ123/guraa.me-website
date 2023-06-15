@@ -97,6 +97,7 @@
     flex-direction: column;
     overflow-y: scroll;
     height: 100%;
+    padding: 10px;
   }
   .chat-text-box {
     display: flex;
