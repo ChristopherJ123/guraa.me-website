@@ -5,7 +5,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include "database.php";
 
-  $username = strtolower(filter_input(
+  $username = (filter_input(
     INPUT_POST,
     "username_name",
     FILTER_SANITIZE_SPECIAL_CHARS
