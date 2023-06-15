@@ -55,6 +55,7 @@ session_start();
                             $result = mysqli_query($conn, $query);
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
+                                    // Check friends if you have some
                                     if ($row['adder_username'] == $_SESSION["username_s"]) {
                                         if ($row['accepter_online_status'] == 0) {
                                             $html = "class='offline'";
@@ -63,7 +64,7 @@ session_start();
                                         }
                                         echo "
                                         <div class='input-box-big border-inventory' id='friend-user-{$row['accepter_username']}' style='justify-content: space-between;'>
-                                            <div style='margin: 0 10px;'>{$row['accepter_username']}</div>
+                                            <a href='profile.php?u={$row['accepter_username']}' style='margin: 0 10px;'>{$row['accepter_username']}</a>
                                             <div style='margin: 0 10px;'>
                                                 <img src='assets/Online_Indicator.svg' alt='online_indicator' style='width: 20px;' {$html}>
                                             </div>
@@ -76,7 +77,7 @@ session_start();
                                         }
                                         echo "
                                         <div class='input-box-big border-inventory' id='friend-user-{$row['adder_username']}' style='justify-content: space-between;'>
-                                            <div style='margin: 0 10px;'>{$row['adder_username']}</div>
+                                            <a href='profile.php?u={$row['adder_username']}' style='margin: 0 10px;'>{$row['adder_username']}</a>
                                             <div style='margin: 0 10px;'>
                                                 <img src='assets/Online_Indicator.svg' alt='online_indicator' style='width: 20px;' {$html}>
                                             </div>

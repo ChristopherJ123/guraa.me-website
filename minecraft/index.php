@@ -80,7 +80,7 @@ $_SESSION["register_failed_s"] = null;
                 while ($row = mysqli_fetch_assoc($result)) {
                   echo "
                   <div class='chat-message'>
-                  <i>{$row['time']}</i> <b>{$row['username']}</b> 
+                  <i>{$row['time']}</i> <a href='profile.php?u={$row['username']}'><b>{$row['username']}</b></a> 
                     <div>{$row['message']}</div>
                   </div>";
                 }
