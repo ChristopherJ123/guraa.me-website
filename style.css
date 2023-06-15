@@ -502,6 +502,25 @@
     -4px -12px 0 0 #000
   }
 
+  .messages-container {
+    display: flex;
+    padding: 16px;
+    gap: 20px;
+  }
+  .messages-area {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 70vh;
+    gap: 8px;
+  }
+
+  .middle-screen {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
   .input-box {
     display: flex;
     font-size: 20px;

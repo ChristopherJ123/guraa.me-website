@@ -13,7 +13,7 @@ $_SESSION["register_failed_s"] = null;
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Document</title>
+  <title>Guramee Website</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
@@ -41,6 +41,7 @@ $_SESSION["register_failed_s"] = null;
                 <div style="overflow-wrap:break-word;"> <?php echo $_SESSION["email_s"]; ?> </div>
                 <a class="border-button" href="profile.php">View profile</a>
                 <a class="border-button" href="friends.php">Friends</a>
+                <a class="border-button" href="messages.php">Messages</a>
                 <a class="border-button" href="scripts/logout.php">Logout</a>
               </div>
             </div>
@@ -67,13 +68,24 @@ $_SESSION["register_failed_s"] = null;
 
         <div class="inventory-container" style="height: 500px;">
           <div class="border-inventory chat-text-area">
-            <p class="shop-item-name">Server Chat</p>
+
+            <!-- server_chats html -->
+            <?php
+            // Session Var for server_id for Server Chat
+            $_SESSION['server_id_s'] = 1;
+            $query = "SELECT name FROM server_chat_names WHERE server_id = {$_SESSION['server_id_s']}";
+            $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_assoc($result);
+            ?>
+            <p class="shop-item-name">Welcome to, <?= $row['name'] ?></p>
             <div class="chat-messages" id="chat-output">
               <?php
               $query = "
-              SELECT sc.message_id, sc.user_id, sc.message, TIME(CONVERT_TZ(sc.time,'+00:00','+7:00')) as time, u.username FROM `server_chat` sc
+              SELECT sc.server_id, sc.user_id, sc.message, TIME(CONVERT_TZ(sc.time,'+00:00','+7:00')) as time, u.username
+              FROM `server_chats` sc
               JOIN users u
-              ON u.user_id = sc.user_id;
+              ON u.user_id = sc.user_id
+              WHERE sc.server_id = {$_SESSION['server_id_s']}
               ";
               $result = mysqli_query($conn, $query);
               if (mysqli_num_rows($result) > 0) {
@@ -87,6 +99,7 @@ $_SESSION["register_failed_s"] = null;
               }
               ?>
             </div>
+
           </div>
           <div class="chat-text-box">
             <form action="" method="post" id="chat-text-box-form" style="width: 100%;">
