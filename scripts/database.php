@@ -18,9 +18,9 @@ function console_log($output, $with_script_tags = true)
 try {
     $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
 } catch (mysqli_sql_exception) {
-    console_log("Could not connect to the database.");
+    console_log("Could not connect to the database");
 }
 
 if ($conn) {
-    console_log("You are connected to the database.");
-} else console_log("Could not connect to the database.");
+    console_log("You are connected to the database");
+} else console_log("Could not connect to the database");
