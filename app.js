@@ -91,16 +91,18 @@ cart_close.addEventListener('click', ()=>{
 $('#chat-text-box-form').on('submit', function(event) {
     event.preventDefault();
     let message = document.getElementById('chat-input').value;
-    document.getElementById('chat-input').value = '';
+    if (message.length > 0) {
+        document.getElementById('chat-input').value = '';
 
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 & this.status == 200) {
-            // TODO: Real time chatting
-            location.reload();
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 & this.status == 200) {
+                // TODO: Real time chatting
+                location.reload();
+            }
         }
+        xmlhttp.open('POST', 'scripts/send_server_chat.php', true);
+        xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xmlhttp.send('msg=' + message);
     }
-    xmlhttp.open('POST', 'scripts/send_server_chat.php', true);
-    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xmlhttp.send('msg=' + message);
 })
