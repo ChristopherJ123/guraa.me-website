@@ -26,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
       if (mysqli_num_rows($sql_query_result) > 0) {
-        while ($row = mysqli_fetch_assoc($sql_query_result)) {
+        $row = mysqli_fetch_assoc($sql_query_result);
+        if ($row['username'] == $username) {
           if ($password_unhash = password_verify($password, $row["password"])) {
             echo "Login succesful!";
             $_SESSION["username_s"] = $username;
@@ -47,6 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../login.php");
             exit();
           }
+        } else {
+          echo "Username does not exist!";
+          $_SESSION["login_failed_s"] = 1;
+          header("Location: ../login.php");
+          exit();
         }
       } else {
         echo "Username does not exist!";
