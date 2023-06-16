@@ -41,7 +41,7 @@ $_SESSION["register_failed_s"] = null;
                 <div style="overflow-wrap:break-word;"> <?php echo $_SESSION["email_s"]; ?> </div>
                 <a class="border-button" href="profile.php">View profile</a>
                 <a class="border-button" href="friends.php">Friends</a>
-                <a class="border-button" href="messages.php">Messages</a>
+                <a class="border-button" href="chat.php">Messages</a>
                 <a class="border-button" href="scripts/logout.php">Logout</a>
               </div>
             </div>
@@ -53,7 +53,7 @@ $_SESSION["register_failed_s"] = null;
       </div>
     </div>
     <div class="container-down">
-      <div class="menu-container border-gui">
+      <div class="menu-container border-gui" style="max-width: 400px;">
 
         <div class="search-container">
           <form style="display:flex; margin-block-end: 0;">
@@ -72,12 +72,15 @@ $_SESSION["register_failed_s"] = null;
             <!-- server_chats html -->
             <?php
             // Session Var for server_id for Server Chat
-            $_SESSION['server_id_s'] = 1;
-            $query = "SELECT name FROM server_chat_names WHERE server_id = {$_SESSION['server_id_s']}";
+            $query = "SELECT name FROM server_chat_names WHERE server_id = 1";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
             ?>
-            <p class="shop-item-name">Welcome to, <?= $row['name'] ?></p>
+            <div class="shop-item-name" style="flex-direction: column;">
+              Welcome to,
+              <br>
+              <b id="chat-user"><?= $row['name'] ?></b>
+            </div>
             <div class="chat-messages" id="chat-output">
               <?php
               $query = "
@@ -98,6 +101,7 @@ $_SESSION["register_failed_s"] = null;
                 }
               }
               ?>
+              <div id="anchor"></div>
             </div>
 
           </div>
