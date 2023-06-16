@@ -223,7 +223,7 @@ session_start();
                                 FROM `server_chats` sc
                                 JOIN users u
                                 ON u.user_id = sc.user_id
-                                WHERE sc.server_id = {$_SESSION['server_id_s']}
+                                WHERE sc.server_id = 1;
                                 ";
                                 $result = mysqli_query($conn, $query);
                                 if (mysqli_num_rows($result) > 0) {
