@@ -108,7 +108,7 @@ $_SESSION["register_failed_s"] = null;
             <form action="" method="post" id="chat-text-box-form" style="width: 100%;">
               <?php
               if (isset($_SESSION["username_s"])) {
-                echo '<input type="text" name="chat_name" id="chat-input" class="input-box-big border-inventory" placeholder="Write a message" style="width: 100%;">';
+                echo '<input type="text" name="chat_name" id="chat-input" class="input-box-big border-inventory" placeholder="Write a message" autofocus style="width: 100%;">';
               } else {
                 echo '<input type="text" name="chat_name" readonly="readonly" class="input-box-big border-inventory" placeholder="Login to write a message" style="width: 100%;">';
               }
