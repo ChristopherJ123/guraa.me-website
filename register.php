@@ -22,9 +22,9 @@ session_start(); ?>
       <form class="register-form" action="scripts/register_action.php" method="post" name="register_form" style="width: 350px">
         <legend>Let's Register!</legend>
         <label for="username_id">Minecraft Username: </label>
-        <input class="register-input border-inventory" type="text" name="username_name" id="username_id" placeholder="Username" required />
+        <input class="register-input border-inventory" type="text" name="username_name" id="username_id" placeholder="Username" maxlength="16" required />
         <label for="email_id">E-mail: </label>
-        <input class="register-input border-inventory" type="email" name="email_name" id="email_id" placeholder="Email" required />
+        <input class="register-input border-inventory" type="email" name="email_name" id="email_id" placeholder="Email" maxlength="50" required />
         <label for="password_id">Password: </label>
         <input class="register-input border-inventory" type="password" name="password_name" id="password_id" placeholder="Password" onchange="confirmPasswordIsSame('register_form')" required />
         <label for="password_confirm_id">Confirm Password: </label>

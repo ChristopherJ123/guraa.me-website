@@ -36,11 +36,11 @@ if (!isset($_SESSION['username_s'])) {
                 <label for="image">Image (URL): <b style="color: red">*</b> </label>
                 <input class="register-input border-inventory" type="text" name="image_name" id="name_id" placeholder="URL" required />
                 <label for="quantity_in_stock">Quantity in stock: <b style="color: red">*</b> </label>
-                <input class="register-input border-inventory" type="text" name="quantity_in_stock_name" id="qiantity_in_stock_id" placeholder="Quantity" required />
+                <input class="register-input border-inventory" type="text" name="quantity_in_stock_name" id="qiantity_in_stock_id" placeholder="Quantity" maxlength="11" required />
                 <label for="price">Price: <b style="color: red">*</b> </label>
-                <input class="register-input border-inventory" type="text" name="price_name" id="price_id" placeholder="Price" required />
+                <input class="register-input border-inventory" type="text" name="price_name" id="price_id" placeholder="Price" maxlength="13" required />
                 <label for="username">Tags (Seperate by ','): </label>
-                <input class="register-input border-inventory" type="text" name="tags_name" id="tags_id" placeholder="Tags" />
+                <input class="register-input border-inventory" type="text" name="tags_name" id="tags_id" placeholder="Tags" maxlength="60" />
 
                 <div class="register-submit-container">
                     <input class="register-submit border-gui" type="submit" value="Enter" />
