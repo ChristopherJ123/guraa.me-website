@@ -187,6 +187,7 @@ session_start();
                                 JOIN users u2
                                 ON dc.friend_id = u2.user_id
                                 WHERE u.username = '{$_SESSION['username_s']}' AND u2.username = '{$user}' OR u.username = '{$user}' AND u2.username = '{$_SESSION['username_s']}'
+                                ORDER BY dc.direct_chat_id
                                 ";
                                 $result = mysqli_query($conn, $query);
                                 if (mysqli_num_rows($result) > 0) {
