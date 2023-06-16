@@ -71,7 +71,6 @@ $_SESSION["register_failed_s"] = null;
 
             <!-- server_chats html -->
             <?php
-            // Session Var for server_id for Server Chat
             $query = "SELECT name FROM server_chat_names WHERE server_id = 1";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
@@ -88,7 +87,7 @@ $_SESSION["register_failed_s"] = null;
               FROM `server_chats` sc
               JOIN users u
               ON u.user_id = sc.user_id
-              WHERE sc.server_id = {$_SESSION['server_id_s']}
+              WHERE sc.server_id = 1
               ";
               $result = mysqli_query($conn, $query);
               if (mysqli_num_rows($result) > 0) {
