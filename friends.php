@@ -66,6 +66,9 @@ session_start();
                                         <div class='input-box-big border-inventory' id='friend-user-{$row['accepter_username']}' style='justify-content: space-between;'>
                                             <a href='profile.php?u={$row['accepter_username']}' style='margin: 0 10px;'>{$row['accepter_username']}</a>
                                             <div style='margin: 0 10px;'>
+                                                <a href='chat.php?u={$row['accepter_username']}'>
+                                                    <img src='assets/Send_Message.svg' alt='online_indicator' style='width: 20px;'>
+                                                </a>
                                                 <img src='assets/Online_Indicator.svg' alt='online_indicator' style='width: 20px;' {$html}>
                                             </div>
                                         </div>";
@@ -79,6 +82,9 @@ session_start();
                                         <div class='input-box-big border-inventory' id='friend-user-{$row['adder_username']}' style='justify-content: space-between;'>
                                             <a href='profile.php?u={$row['adder_username']}' style='margin: 0 10px;'>{$row['adder_username']}</a>
                                             <div style='margin: 0 10px;'>
+                                            <a href='chat.php?u={$row['adder_username']}'>
+                                                <img src='assets/Send_Message.svg' alt='online_indicator' style='width: 20px;'>
+                                            </a>
                                                 <img src='assets/Online_Indicator.svg' alt='online_indicator' style='width: 20px;' {$html}>
                                             </div>
                                         </div>";
