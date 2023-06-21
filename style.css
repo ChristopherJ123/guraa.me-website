@@ -6,8 +6,9 @@
   body {
     margin: 0;
     font-family: "Minecraft";
-    background-image: url(assets/dirtbg.jpg);
+    background-image: url(assets/bamboobg.png);
     background-size: 96px;
+    image-rendering: pixelated;
   }
 
   input {
@@ -524,11 +525,22 @@
     display: none;
   }
 
+  .youtube-container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
   .middle-screen {
     display: flex;
     height: 100vh;
     justify-content: center;
     align-items: center;
+  }
+  .flex-gap-padding {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
   }
   .input-box {
     display: flex;
