@@ -35,6 +35,7 @@ session_start(); ?>
             </div>";
           }
         } ?>
+        <a href="register.php" style="text-align:center; max-width: 300px;"><i> Don't have an account? Register now!</i></a>
         <div class="register-submit-container">
           <input class="register-submit border-gui" type="submit" value="Enter" />
         </div>
