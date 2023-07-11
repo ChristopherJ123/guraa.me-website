@@ -154,12 +154,12 @@ session_start();
                     <div class="border-gui flex-gap-padding" style="flex-direction: column;">
                         <div> Here is my latest YouTube videos:</div>
                         <div class="youtube-container">
-                            <iframe src="https://www.youtube.com/embed/rMZuqu0GHis" frameborder="0"></iframe>
-                            <iframe src="https://www.youtube.com/embed/99vSV1NuXZY" frameborder="0"></iframe>
-                            <iframe src="https://www.youtube.com/embed/EzF4d8IVWU8" frameborder="0"></iframe>
-                            <iframe src="https://www.youtube.com/embed/Eb_3GBHBHGM" frameborder="0"></iframe>
-                            <iframe src="https://www.youtube.com/embed/rwUPAcKz0y4" frameborder="0"></iframe>
-                            <iframe src="https://www.youtube.com/embed/n2lLDxiP95g" frameborder="0"></iframe>
+                            <iframe class="latestVideoEmbed" vnum='0' cid="UC4ZIYVSrF-OFJ-9uqbeHSzA" allowfullscreen></iframe>
+                            <iframe class="latestVideoEmbed" vnum='1' cid="UC4ZIYVSrF-OFJ-9uqbeHSzA" allowfullscreen></iframe>
+                            <iframe class="latestVideoEmbed" vnum='2' cid="UC4ZIYVSrF-OFJ-9uqbeHSzA" allowfullscreen></iframe>
+                            <iframe class="latestVideoEmbed" vnum='3' cid="UC4ZIYVSrF-OFJ-9uqbeHSzA" allowfullscreen></iframe>
+                            <iframe class="latestVideoEmbed" vnum='4' cid="UC4ZIYVSrF-OFJ-9uqbeHSzA" allowfullscreen></iframe>
+                            <iframe class="latestVideoEmbed" vnum='5' cid="UC4ZIYVSrF-OFJ-9uqbeHSzA" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -170,6 +170,7 @@ session_start();
 </body>
 
 <script src="chat.js"></script>
+<script src="youtube.js"></script>
 
 <?php
 if (isset($_SESSION["username_s"])) {
