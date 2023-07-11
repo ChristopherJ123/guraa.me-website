@@ -54,6 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_query($conn, $sql_query_insert2);
         echo "{$username} is now registered.";
         $_SESSION["register_failed_s"] = 3;
+        $_SESSION["username_s"] = $username;
+        $_SESSION["email_s"] = $email;
         header("Location: ../register.php");
         exit();
       }

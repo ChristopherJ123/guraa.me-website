@@ -31,12 +31,21 @@ session_start(); ?>
         <input class="register-input border-inventory" type="password" name="password_confirm_name" id="password_confirm_id" placeholder="Password Confirm" onchange="confirmPasswordIsSame('register_form')" required />
         <?php if (!empty($_SESSION["register_failed_s"])) {
           if ($_SESSION["register_failed_s"] == 3) { ?>
-            <div class="success">Registered succesfully!</div> <?php } elseif ($_SESSION["register_failed_s"] == 1) {
-                                                                ?>
-            <div class="error">This username has already registered!</div> <?php } elseif ($_SESSION["register_failed_s"] == 2) {
-                                                                            ?>
-            <div class="error">This email has already registered.</div> <?php }
-                                                                        } ?>
+            <div class="success">Registered succesfully!</div>
+            <script>
+              function delay(time) {
+                return new Promise(resolve => setTimeout(resolve, time));
+              }
+              delay(1000).then(() => location.href = "index.php");
+            </script>
+          <?php } elseif ($_SESSION["register_failed_s"] == 1) {
+          ?>
+            <div class="error">This username has already registered!</div>
+          <?php } elseif ($_SESSION["register_failed_s"] == 2) {
+          ?>
+            <div class="error">This email has already registered.</div>
+        <?php }
+        } ?>
         <div class="register-submit-container">
           <input class="register-submit border-gui" type="submit" value="Enter" />
         </div>
