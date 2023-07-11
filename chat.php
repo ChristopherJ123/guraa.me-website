@@ -57,7 +57,7 @@ session_start();
                                         $html = "class='online'";
                                     }
                                     echo "
-                                    <div class='input-box-big border-inventory' onclick='redirect(\"?u={$row['accepter_username']}\")' id='friend-user-{$row['accepter_username']}' style='justify-content: space-between;'>
+                                    <div class='input-box-big border-inventory' onclick='redirect(\"chat.php?u={$row['accepter_username']}\")' id='friend-user-{$row['accepter_username']}' style='justify-content: space-between;'>
                                         <a href='profile.php?u={$row['accepter_username']}' style='margin: 0 10px;'>{$row['accepter_username']}</a>
                                         <div style='margin: 0 10px;'>
                                             <img src='assets/Online_Indicator.svg' alt='online_indicator' style='width: 20px;' {$html}>
@@ -71,7 +71,7 @@ session_start();
                                         $html = "class='online'";
                                     }
                                     echo "
-                                    <div class='input-box-big border-inventory' onclick='redirect(\"?u={$row['adder_username']}\")' id='friend-user-{$row['adder_username']}' onclick='selectDirectChat(\"{$row['adder_username']}\")' style='justify-content: space-between;'>
+                                    <div class='input-box-big border-inventory' onclick='redirect(\"chat.php?u={$row['adder_username']}\")' id='friend-user-{$row['adder_username']}' onclick='selectDirectChat(\"{$row['adder_username']}\")' style='justify-content: space-between;'>
                                         <a href='profile.php?u={$row['adder_username']}' style='margin: 0 10px;'>{$row['adder_username']}</a>
                                         <div style='margin: 0 10px;'>
                                             <img src='assets/Online_Indicator.svg' alt='online_indicator' style='width: 20px;' {$html}>
@@ -98,7 +98,7 @@ session_start();
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo "
-                                <div class='input-box-big border-inventory' onclick='redirect(\"?s={$row['name']}\")' style='justify-content: space-between;'>
+                                <div class='input-box-big border-inventory' onclick='redirect(\"chat.php?s={$row['name']}\")' style='justify-content: space-between;'>
                                     <div style='margin: 0 10px;'>{$row['name']}</div>
                                 </div>
                                 ";

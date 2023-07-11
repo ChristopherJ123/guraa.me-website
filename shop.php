@@ -70,19 +70,54 @@ $_SESSION["register_failed_s"] = null;
         <?php } ?>
 
         <div class="inventory-container" style="height: 500px;">
-          <div class="border-inventory chat-text-area">
-
-            <!-- server_chats html -->
             <?php
-            $query = "SELECT name FROM server_chat_names WHERE server_id = 1";
+          $server = filter_input(
+            INPUT_GET,
+            's',
+            FILTER_SANITIZE_SPECIAL_CHARS
+          );
+          if (!isset($server)) {
+            $server = "Server Chat";
+          }
+          // Chat with server
+          $query = "SELECT * FROM server_chat_names WHERE name = '{$server}'";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
+          $type = "server";
+          ?>
+          <div style="font-size: 24px;" id="chat-user">
+            <?= $row['name'] ?>
+
+            <!-- Server selector -->
+            <span class="server-selector-dropdown">
+              <img class="border-button-no-outline" src="assets/Dropdown.svg" alt="Dropdown" style="width: 20px;">
+              <div class="server-selector-dropdown-content border-gui">
+                <?php
+                $query = "SELECT * FROM server_chat_names";
+                $result = mysqli_query($conn, $query);
+                if (mysqli_num_rows($result) > 0) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    echo "
+                      <div class='input-box border-button' onclick='redirect(\"shop.php?s={$row['name']}\")' style='justify-content: space-between;'>
+                          <div>{$row['name']}</div>
+                      </div>
+                      ";
+                  }
+                }
+                ?>
+                <!-- TODO: Able to create server from here VVV -->
+                <?php
+                if (isset($_SESSION["username_s"])) {
+                  echo "<a href=\"chat.php\" style='color: #8b8b8b; text-align: center;'>+</a>";
+                }
             ?>
-            <div class="shop-item-name" style="flex-direction: column;">
-              Welcome to,
-              <br>
-              <b id="chat-user"><?= $row['name'] ?></b>
+              </div>
+            </span>
+
             </div>
+
+          <div class="border-inventory chat-text-area" id="<?= $type ?>">
+
             <div class="chat-messages" id="chat-output">
               <?php
               $query = "
@@ -90,7 +125,9 @@ $_SESSION["register_failed_s"] = null;
               FROM `server_chats` sc
               JOIN users u
               ON u.user_id = sc.user_id
-              WHERE sc.server_id = 1
+              JOIN server_chat_names scn
+              ON scn.server_id = sc.server_id
+              WHERE scn.name = '{$server}'
               ";
               $result = mysqli_query($conn, $query);
               if (mysqli_num_rows($result) > 0) {
@@ -108,10 +145,10 @@ $_SESSION["register_failed_s"] = null;
 
           </div>
           <div class="chat-text-box">
-            <form action="" method="post" id="chat-text-box-form" style="width: 100%;">
+            <form method="post" id="chat-text-box-form" style="width: 100%; margin-block-end: 0;">
               <?php
               if (isset($_SESSION["username_s"])) {
-                echo '<input type="text" name="chat_name" id="chat-input" class="input-box-big border-inventory" placeholder="Write a message" autofocus style="width: 100%;">';
+                echo '<input type="text" name="chat_name" id="chat-input" class="input-box-big border-inventory" placeholder="Write a message" style="width: 100%;" autofocus>';
               } else {
                 echo '<input type="text" name="chat_name" readonly="readonly" class="input-box-big border-inventory" placeholder="Login to write a message" style="width: 100%;">';
               }
@@ -170,6 +207,8 @@ $_SESSION["register_failed_s"] = null;
   </div>
 
 </body>
+
+<script src="chat.js"></script>
 <script src="shop.js"></script>
 
 <?php

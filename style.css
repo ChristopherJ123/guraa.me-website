@@ -526,6 +526,22 @@
   .new-server-name {
     display: none;
   }
+  .server-selector-dropdown {
+    position: relative;
+  }
+  .server-selector-dropdown-content {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    top: 0px;
+    left: 0px;
+    gap: 12px;
+    padding: 12px;
+    max-width: 200px;
+  }
+  .server-selector-dropdown:hover .server-selector-dropdown-content {
+    display: flex;
+  }
 
   .youtube-container {
     display: grid; 

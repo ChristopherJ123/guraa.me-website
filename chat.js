@@ -105,5 +105,5 @@ function formClose() {
 }
 
 function redirect(link) {
-    location.href = "chat.php" + link;
+    location.href = link;
 }

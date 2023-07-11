@@ -6,10 +6,6 @@ let cart_list = document.querySelector('.cart-list');
 let cart_total = document.querySelector('.cart-total');
 let cart_close = document.querySelector('.cart-close');
 
-// Scroll element into view
-let anchor = document.getElementById('anchor');
-anchor.scrollIntoView();
-
 let items_quantity = [];
 var totalItems;
 var totalPrice;
@@ -83,32 +79,9 @@ function updateCart(item_id, value) {
     }
 }
 
-
 shopping_cart_image.addEventListener('click', ()=>{
     body.classList.add('open-cart')
 })
 cart_close.addEventListener('click', ()=>{
     body.classList.remove('open-cart')
-})
-
-// Prevent submitting form
-$('#chat-text-box-form').on('submit', function(event) {
-    event.preventDefault();
-    let message = document.getElementById('chat-input').value;
-    let name = document.getElementById('chat-user').innerText;
-    if (message.length > 0) {
-        document.getElementById('chat-input').value = '';
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 & this.status == 200) {
-                // TODO: Real time chatting
-                // console.log(this.responseText);
-                location.reload();
-            }
-        }
-        xmlhttp.open('POST', 'scripts/send_server_chat.php', true);
-        xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xmlhttp.send('s=' + name + '&' + 'msg=' + message);
-    }
 })
