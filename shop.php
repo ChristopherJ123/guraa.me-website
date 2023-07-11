@@ -19,6 +19,9 @@ $_SESSION["register_failed_s"] = null;
 </head>
 
 <body>
+  <a class="register-back" href="index.php">
+    <img src="assets/Back_arrow.svg" alt="" />
+  </a>
   <div class="container">
     <div class="container-up">
       <div class="login-container border-gui">
@@ -35,10 +38,10 @@ $_SESSION["register_failed_s"] = null;
           <?php if (isset($_SESSION["username_s"])) {
           ?>
 
-            <div class="login-item login-username"> Welcome, <?php echo $_SESSION["username_s"]; ?>
-              <div class="login-profile border-gui">
+            <div class="login-item login-profile-dropdown"> Welcome, <?= $_SESSION["username_s"]; ?>
+              <div class="login-profile-dropdown-content border-gui">
                 <div>Hello, <?= $_SESSION["username_s"]; ?> </div>
-                <div style="overflow-wrap:break-word;"> <?php echo $_SESSION["email_s"]; ?> </div>
+                <div style="overflow-wrap:break-word;"> <?= $_SESSION["email_s"]; ?> </div>
                 <a class="border-button" href="profile.php">View profile</a>
                 <a class="border-button" href="friends.php">Friends</a>
                 <a class="border-button" href="chat.php">Messages</a>
