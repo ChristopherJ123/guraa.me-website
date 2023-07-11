@@ -54,19 +54,21 @@
     padding-right: 5px;
     cursor: pointer;
   }
-  .login-profile {
-    display: none;
+  .login-profile-dropdown {
+    position: relative;
   }
-  .login-username:hover .login-profile {
-    display: flex;
-    flex-direction: column;
+  .login-profile-dropdown-content {
+    display: none;
     position: absolute;
+    flex-direction: column;
+    top: 0px;
+    right: 0px;
     gap: 12px;
-    top: 20px;
-    right: 20px;
     padding: 12px;
-    box-sizing: border-box;
     max-width: 200px;
+  }
+  .login-profile-dropdown:hover .login-profile-dropdown-content {
+    display: flex;
   }
 
   .menu-container {

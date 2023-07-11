@@ -37,10 +37,11 @@ session_start();
                 <div style="display: flex; justify-content:flex-end; align-items: center; gap: 30px;">
                     <?php if (isset($_SESSION["username_s"])) {
                     ?>
-                        <div class="border-gui login-username" style="padding: 5px;"> Welcome, <?php echo $_SESSION["username_s"]; ?>
-                            <div class="login-profile border-gui">
+                        <div class="border-gui login-profile-dropdown" style="padding: 5px;">
+                            <div class="login-profile-dropbtn">Welcome, <?= $_SESSION["username_s"]; ?></div>
+                            <div class="login-profile-dropdown-content border-gui">
                                 <div>Hello, <?= $_SESSION["username_s"]; ?> </div>
-                                <div style="overflow-wrap:break-word;"> <?php echo $_SESSION["email_s"]; ?> </div>
+                                <div style="overflow-wrap:break-word;"> <?= $_SESSION["email_s"]; ?> </div>
                                 <a class="border-button" href="profile.php">View profile</a>
                                 <a class="border-button" href="friends.php">Friends</a>
                                 <a class="border-button" href="chat.php">Messages</a>

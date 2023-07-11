@@ -9,7 +9,7 @@ function loadVideo(iframe) {
       var title = data.items[videoNumber].title;
       id = link.substr(link.indexOf("=") + 1);
       iframe.setAttribute("src", "https://youtube.com/embed/" + id + "?controls=0&autoplay=1");
-      iframe.parentElement.querySelector("#video-title").innerText = title;
+    //   iframe.parentElement.querySelector("#video-title").innerText = title;
     }
   );
 }
