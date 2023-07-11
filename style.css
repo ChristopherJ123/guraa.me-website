@@ -307,7 +307,7 @@
       0 0 0 4px #8b8b8b;
   }
 
-  .border-button:hover {
+  .border-button:hover,.border-button-no-outline:hover {
     background-color: #c3c3c3;
 
   }
