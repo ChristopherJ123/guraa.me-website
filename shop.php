@@ -60,8 +60,8 @@ $_SESSION["register_failed_s"] = null;
 
         <div class="search-container">
           <form style="display:flex; margin-block-end: 0;">
-            <input type="search" name="search_name" id="" class="register-input border-inventory" placeholder="Search" style="height:auto">
-            <input type="submit" class="border-button-no-outline" value="Submit">
+            <input type="search" name="search_name" id="" placeholder="Search" class="register-input border-inventory" style="height:auto;">
+            <input type="submit" value="   " class="border-button-no-outline" style="background-image: url(assets/Search_Icon.svg); background-size: 24px; background-repeat: no-repeat;">
           </form>
         </div>
 
@@ -70,7 +70,7 @@ $_SESSION["register_failed_s"] = null;
         <?php } ?>
 
         <div class="inventory-container" style="height: 500px;">
-            <?php
+          <?php
           $server = filter_input(
             INPUT_GET,
             's',
@@ -81,8 +81,8 @@ $_SESSION["register_failed_s"] = null;
           }
           // Chat with server
           $query = "SELECT * FROM server_chat_names WHERE name = '{$server}'";
-            $result = mysqli_query($conn, $query);
-            $row = mysqli_fetch_assoc($result);
+          $result = mysqli_query($conn, $query);
+          $row = mysqli_fetch_assoc($result);
           $type = "server";
           ?>
           <div style="font-size: 24px;" id="chat-user">
@@ -110,11 +110,11 @@ $_SESSION["register_failed_s"] = null;
                 if (isset($_SESSION["username_s"])) {
                   echo "<a href=\"chat.php\" style='color: #8b8b8b; text-align: center;'>+</a>";
                 }
-            ?>
+                ?>
               </div>
             </span>
 
-            </div>
+          </div>
 
           <div class="border-inventory chat-text-area" id="<?= $type ?>">
 
