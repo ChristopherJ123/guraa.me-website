@@ -90,6 +90,11 @@ session_start();
                                         </div>";
                                     }
                                 }
+                            } else {
+                                echo "
+                                <br>
+                                <center style='color: #8b8b8b; margin: 10px;'>Empty</center>
+                                ";
                             }
                             ?>
                         </div>
@@ -114,6 +119,11 @@ session_start();
                                         <div style='padding: 0 10px; cursor: pointer; ' onclick='acceptFriend(\"{$row['username']}\")'><img src='assets/add_friends.svg' alt='add_friends.svg' width='30px'></div>
                                     </div>";
                                 }
+                            } else {
+                                echo "
+                                <br>
+                                <center style='color: #8b8b8b; margin: 10px;'>Empty</center>
+                                ";
                             }
                             ?>
                             <div class="text-container" id="friends-warning-output" style="display: none;"></div>
