@@ -24,7 +24,9 @@ session_start();
         </div>
 
         <div style="display: flex; justify-content:center; align-items: center; gap: 30px;">
-            <img class="border-button" src="assets/guramee.jpg" alt="guramee" width="50px">
+            <a href="https://www.youtube.com/channel/UC4ZIYVSrF-OFJ-9uqbeHSzA">
+                <img class="border-button" src="assets/guramee.jpg" alt="guramee" width="50px">
+            </a>
             <div class="border-gui" style="padding: 5px;">
                 <div>Hello, welcome to my website</div>
             </div>
