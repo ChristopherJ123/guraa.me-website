@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($row['username'] == $username) {
           if ($password_unhash = password_verify($password, $row["password"])) {
             echo "Login succesful!";
+            $_SESSION["login_failed_s"] = 3;
             $_SESSION["username_s"] = $username;
             $_SESSION["email_s"] = $row['email'];
             $query = "
